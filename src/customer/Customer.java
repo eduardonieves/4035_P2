@@ -1,5 +1,10 @@
 package customer;
 
+/**
+ * Customer Class which represent an individual on line
+ * @author Eduardo O. Nieves Colon
+ *
+ */
 public class Customer {
 	
 	//Time when Customer arrived
@@ -13,6 +18,9 @@ public class Customer {
 	
 	//Time Customer waited before getting service
 	private int waitingTime;
+	
+	//Has Customer changed to another line
+	private boolean changedLine = false;
 
 	
 	public Customer(int arrival, int service){
@@ -26,6 +34,10 @@ public class Customer {
 	
 	public void setDepartureTime(int t){
 		this.departureTime = t;
+	}
+	
+	public void toogleChangeLine(){
+		this.changedLine = true;
 	}
 	
 	public void reduceService(){
@@ -42,6 +54,10 @@ public class Customer {
 	
 	public int getWaitingTime(){
 		return this.waitingTime;
+	}
+	
+	public boolean changedLine(){
+		return this.changedLine;
 	}
 
 }
