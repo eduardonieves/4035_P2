@@ -1,4 +1,4 @@
-package customer;
+package utils;
 
 /**
  * Customer Class which represent an individual on line
