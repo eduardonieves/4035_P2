@@ -1,34 +1,111 @@
 package dataReader;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class DataReader {
 
-	private int i;
+	private String fileName;
+	public ArrayList<String> fileList = new ArrayList<>();
 	private Integer[][] dataSet; 
 	private String parentDirectory; 
+	private static BufferedReader reader = null;
+	private static File fout = null;
+	static FileOutputStream fos = null;
+	private static BufferedWriter bw = null;
+	private String line = "";
 	
 
 	public DataReader() throws FileNotFoundException {
-		parentDirectory = "inputFiles"; 
-		Scanner dataFiles = new Scanner(new File(parentDirectory, "dataFiles.txt")); 
-		// the values of n and m shall be read from file: "inputFiles/parameters.txt". 
-		this.i = dataFiles.nextInt(); 
-		dataFiles.close();
-	}
+			//if running on Terminal	
+			//fileName = "dataFiles.txt";
+
+			//if running on Eclipse and files are inside src folder
+			fileName = "inputFiles/dataFiles.txt";
+
+			File file = new File(fileName);
+
+			if(file.exists()){
+
+				try {
+					fout = new File(fileName+".out");
+					if(file.getName().endsWith(".txt")){
+						try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+							String line;
+							while ((line = br.readLine()) != null) {
+
+								if(!line.equals("")){
+									fileList.add(line);
+								}
+							}
+
+							//TestScenarios.loadInputFile(fileList);
+							for(int i = 0; i< fileList.size(); i++){
+								
+								
+								String fileName = fileList.get(i);
+								//String[] fileNameSplit = fileName.split(" ");
+								//fileName = fileNameSplit[1];
+												
+								File inputFile = new File(fileName);
+						
+								if(file.exists()){
+						
+									//if running on Terminal		
+									//reader = new BufferedReader(new FileReader(fileName));
+									//fout = new File("output"+(i+1)+".out");
+						
+									//if running on Eclipse and files are inside src folder
+									reader = new BufferedReader(new FileReader(fileName));
+									//fout = new File("inputFiles/"+fileName.replaceAll("\\.[^.]*$", "")+".out");
+						
+									//fos = new FileOutputStream(fout);
+									//bw = new BufferedWriter(new OutputStreamWriter(fos));
+						
+						
+									//	int counter = 0;
+							
+						
+									while ((line = reader.readLine()) != null) {
+						
+									}					
+								}
+							}
+						}
+					}
+
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException err) {
+					err.printStackTrace();
+				} finally {
+					if (reader != null) {
+						try {
+							reader.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}	
+			}
 	
-	public int geti() {
-		return i;
 	}
-	
 	/**
 	 * 
 	 * @return
 	 * @throws FileNotFoundException 
 	 */
+
+	
+	/*
 	public Object[][] readDataFiles() throws FileNotFoundException {
 		dataSet = new Integer[i][];
 
@@ -59,6 +136,6 @@ public class DataReader {
 			System.out.print(numbers[i] + "  "); 
 		System.out.println(); 
 	}
-
+	*/
 
 }
