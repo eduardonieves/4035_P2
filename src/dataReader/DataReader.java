@@ -51,13 +51,13 @@ public class DataReader {
 							for(int i = 0; i< fileList.size(); i++){
 								
 								
-								String fileName = fileList.get(i);
+								String fileName ="inputFiles/" +  fileList.get(i);
 								//String[] fileNameSplit = fileName.split(" ");
 								//fileName = fileNameSplit[1];
 												
 								File inputFile = new File(fileName);
 						
-								if(file.exists()){
+								if(inputFile.exists()){
 						
 									//if running on Terminal		
 									//reader = new BufferedReader(new FileReader(fileName));
@@ -65,19 +65,55 @@ public class DataReader {
 						
 									//if running on Eclipse and files are inside src folder
 									reader = new BufferedReader(new FileReader(fileName));
-									//fout = new File("inputFiles/"+fileName.replaceAll("\\.[^.]*$", "")+".out");
+									
+									
+									//Initialize Policies
+									/*
+									SLMS = new SLMS(1);
+									SLMS = new SLMS(3);
+									SLMS = new SLMS(5);
+									MLMS = new MLMS(1);
+									MLMS = new MLMS(3);
+									MLMS = new MLMS(5);
+									MLMSBLL = new MLMSBLL(1);
+									MLMSBLL = new MLMSBLL(3);
+									MLMSBLL = new MLMSBLL(5);
+									MLMSBWT = new MLMSBWT(1);
+									MLMSBWT = new MLMSBWT(3);
+									MLMSBWT = new MLMSBWT(5);
+									*/
+
+									
+									String[] fileNameSplit = fileName.split("/");
+									fileName = fileNameSplit[1];
+									String[] fileNameSplit2 = fileName.split("\\.");
+									fileName = fileNameSplit2[0];
+									
+									fout = new File(fileName+"_OUT.txt");
 						
-									//fos = new FileOutputStream(fout);
-									//bw = new BufferedWriter(new OutputStreamWriter(fos));
-						
-						
-									//	int counter = 0;
-							
+									fos = new FileOutputStream(fout);
+									bw = new BufferedWriter(new OutputStreamWriter(fos));
+													
 						
 									while ((line = reader.readLine()) != null) {
-						
+										System.out.println(line);
 									}					
 								}
+								else
+								{
+									String[] fileNameSplit = fileName.split("/");
+									fileName = fileNameSplit[1];
+									String[] fileNameSplit2 = fileName.split("\\.");
+									fileName = fileNameSplit2[0];
+									
+									fout = new File(fileName+"_OUT.txt");
+									
+									fos = new FileOutputStream(fout);
+									bw = new BufferedWriter(new OutputStreamWriter(fos));
+									bw.write("Input file not found.");
+									bw.close();
+								}
+									
 							}
 						}
 					}
