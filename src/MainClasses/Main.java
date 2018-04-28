@@ -14,7 +14,9 @@ public class Main {
 		
 		try {
 			dataReader.DataReader reader = new dataReader.DataReader();
-			System.out.print(reader.fileList.toString());
+			for (int i=0; i<reader.ArrivalQueue.size();i++) {
+				System.out.print(reader.ArrivalQueue.poll());
+			}
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.ArrayList;
+
 import MainClasses.Main;
 import interfaces.Policy;
 import policies.SLMS;
@@ -10,11 +12,13 @@ public class Server {
 	private ServiceLine serviceLineID;
 //	private boolean hasNext;
 	private Customer currentCustomer;
+	public ArrayList<Customer> servedCustomersList;
 	
-	public Server(ServiceLine serviceLineID){
+	public Server(ServiceLine serviceLineID, ArrayList<Customer> servedCustomersList){
 		this.serviceLineID = serviceLineID;
 		this.serving = false;
 		this.currentCustomer = null;
+		this.servedCustomersList = servedCustomersList;
 	}
 	
 	public boolean isServing() {
@@ -45,13 +49,11 @@ public class Server {
 		serving = true;	
 	}
 	
-	public Customer serviceEnded(){
+	public void serviceEnded(){
 		serving = false;
 		Customer ctr = currentCustomer;
-		//super.addServedCustomers(currentCustomer);
+		servedCustomersList.add(ctr);
 		this.currentCustomer = null;	
-		return ctr;
-
 	}
 	
 	

@@ -8,7 +8,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+
+import utils.Customer;
 
 
 public class DataReader {
@@ -22,6 +26,7 @@ public class DataReader {
 	static FileOutputStream fos = null;
 	private static BufferedWriter bw = null;
 	private String line = "";
+	public Queue<Customer> ArrivalQueue = new LinkedList<Customer>();
 	
 
 	public DataReader() throws FileNotFoundException {
@@ -96,7 +101,8 @@ public class DataReader {
 													
 						
 									while ((line = reader.readLine()) != null) {
-										System.out.println(line);
+										String[] inputs = line.split(" ");
+										ArrivalQueue.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
 									}					
 								}
 								else

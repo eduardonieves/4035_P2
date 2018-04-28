@@ -9,25 +9,22 @@ import utils.ServiceLine;
 
 public class SLMS implements Policy {
 
-	public static ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
-	public static Server[] serversList;
+	public ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
+	public ArrayList<Server> serversList;
 
 	
 	public SLMS(int servers){
 		
 		ServiceLine serviceLine = new ServiceLine();
 		
-		serversList = new Server[servers];
+		serversList = new ArrayList<>();
 		
 		for(int i = 0; i < servers;i++){
-			serversList[i] = new Server(serviceLine);
+			serversList.add(new Server(serviceLine, servedCustomers));
 		}
 		
-		
-		//serversList = (Server[]) new Object[servers];
-		
-		
-		
+		serviceLine.setServersList(serversList);
+				
 	//	servedCustomers.add(serversList[0].serviceEnded());
 	}
 	

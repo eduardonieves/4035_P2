@@ -13,13 +13,21 @@ import interfaces.Policy;
 public class ServiceLine {
 	
 	Queue<Customer> customerQueue;
+	public ArrayList<Server> serversList;
 
 	
 	
 	public ServiceLine(){
 		this.customerQueue = new LinkedList<Customer>();
+		
+	}
 
+	public ArrayList<Server> getServersList() {
+		return serversList;
+	}
 
+	public void setServersList(ArrayList<Server> serversList) {
+		this.serversList = serversList;
 	}
 
 	public void addCustomer(Customer c){
@@ -36,7 +44,7 @@ public class ServiceLine {
 	
 	public boolean sendCustomerToServer(){
 		
-		for(Server s: Main.serversList){
+		for(Server s: serversList){
 			if(!s.serving){
 				s.setCurrentCustomer(customerQueue.remove());
 				return true;
