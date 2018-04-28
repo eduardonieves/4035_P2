@@ -1,6 +1,8 @@
 package utils;
 
 import MainClasses.Main;
+import interfaces.Policy;
+import policies.SLMS;
 
 public class Server {
 
@@ -43,11 +45,12 @@ public class Server {
 		serving = true;	
 	}
 	
-	public void serviceEnded(){
+	public Customer serviceEnded(){
 		serving = false;
 		Customer ctr = currentCustomer;
-		Main.servedCustomers.add(ctr);
+		//super.addServedCustomers(currentCustomer);
 		this.currentCustomer = null;	
+		return ctr;
 
 	}
 	

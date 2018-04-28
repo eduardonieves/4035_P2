@@ -1,17 +1,25 @@
 package utils;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
-import MainClasses.Main;
+import interfaces.Policy;
+
+
+
 
 public class ServiceLine {
 	
 	Queue<Customer> customerQueue;
+
+	
 	
 	public ServiceLine(){
 		this.customerQueue = new LinkedList<Customer>();
+
+
 	}
 
 	public void addCustomer(Customer c){
