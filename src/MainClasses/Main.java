@@ -2,8 +2,10 @@ package MainClasses;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Queue;
 
 import dataReader.DataReader;
+import policies.SLMS;
 import utils.Customer;
 import utils.Server;
 
@@ -14,9 +16,22 @@ public class Main {
 		
 		try {
 			dataReader.DataReader reader = new dataReader.DataReader();
-			for (int i=0; i<reader.ArrivalQueue.size();i++) {
-				System.out.print(reader.ArrivalQueue.poll());
+			
+			ArrayList<Queue<Customer>> arrivalList =  reader.customerArrivalList;
+			
+			for(Queue<Customer> queue: arrivalList){
+				SLMS slms1 = new SLMS(1, queue);
+				slms1.runSLMS();
+				SLMS slms3 = new SLMS(3,queue);
+				SLMS slms5 = new SLMS(5,queue);
 			}
+			
+			
+			
+			
+//			for (int i=0; i<reader.ArrivalQueue.size();i++) {
+//				System.out.print(reader.ArrivalQueue.poll());
+//			}
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -24,6 +39,8 @@ public class Main {
 		}
 
 	}
+	
+
 	
 
 

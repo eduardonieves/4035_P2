@@ -1,6 +1,7 @@
 package policies;
 
 import java.util.ArrayList;
+import java.util.Queue;
 
 import interfaces.Policy;
 import utils.Customer;
@@ -13,7 +14,7 @@ public class SLMS implements Policy {
 	public ArrayList<Server> serversList;
 
 	
-	public SLMS(int servers){
+	public SLMS(int servers, Queue<Customer> customersQueue ){
 		
 		ServiceLine serviceLine = new ServiceLine();
 		
@@ -24,6 +25,10 @@ public class SLMS implements Policy {
 		}
 		
 		serviceLine.setServersList(serversList);
+		
+		while(!customersQueue.isEmpty()){
+			serviceLine.addCustomer(customersQueue.remove());
+		}
 				
 	//	servedCustomers.add(serversList[0].serviceEnded());
 	}
@@ -31,6 +36,13 @@ public class SLMS implements Policy {
 	public void addServedCustomer(Customer customer){
 		
 		
+		
+	}
+	
+	public void runSLMS(){
+		
+		//while or for loop
+		proccessTurn();
 		
 	}
 	

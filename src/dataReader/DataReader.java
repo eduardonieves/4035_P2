@@ -12,6 +12,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+import policies.SLMS;
 import utils.Customer;
 
 
@@ -26,7 +27,8 @@ public class DataReader {
 	static FileOutputStream fos = null;
 	private static BufferedWriter bw = null;
 	private String line = "";
-	public Queue<Customer> ArrivalQueue = new LinkedList<Customer>();
+	public ArrayList<Queue<Customer>> customerArrivalList = new ArrayList<>();
+
 	
 
 	public DataReader() throws FileNotFoundException {
@@ -41,7 +43,7 @@ public class DataReader {
 			if(file.exists()){
 
 				try {
-					fout = new File(fileName+".out");
+					fout = new File(fileName+"_OUT.txt");
 					if(file.getName().endsWith(".txt")){
 						try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 							String line;
@@ -73,8 +75,9 @@ public class DataReader {
 									
 									
 									//Initialize Policies
+									
+							
 									/*
-									SLMS = new SLMS(1);
 									SLMS = new SLMS(3);
 									SLMS = new SLMS(5);
 									MLMS = new MLMS(1);
@@ -98,12 +101,17 @@ public class DataReader {
 						
 									fos = new FileOutputStream(fout);
 									bw = new BufferedWriter(new OutputStreamWriter(fos));
-													
-						
+									
+								    Queue<Customer> ArrivalQueue = new LinkedList<Customer>();
+																
 									while ((line = reader.readLine()) != null) {
 										String[] inputs = line.split(" ");
 										ArrivalQueue.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
-									}					
+									
+									}	
+									customerArrivalList.add(ArrivalQueue);
+									
+						
 								}
 								else
 								{
