@@ -3,6 +3,7 @@ package utils;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 import interfaces.Policy;
@@ -12,14 +13,13 @@ import interfaces.Policy;
 
 public class ServiceLine {
 	
-	Queue<Customer> customerQueue;
+	public Queue<Customer> customerQueue;
 	public ArrayList<Server> serversList;
 
 	
 	
 	public ServiceLine(){
 		this.customerQueue = new LinkedList<Customer>();
-		
 	}
 
 	public ArrayList<Server> getServersList() {
@@ -51,6 +51,22 @@ public class ServiceLine {
 			}
 		}
 		return false;
+	}
+	
+	public Customer frontCustomer(){
+		if(customerQueue.isEmpty()){
+			return null;
+		}else{
+			return customerQueue.peek();
+		}
+	}
+	
+	public void sortQueue(){
+		
+		
+		
+		
+		
 	}
 	
 	

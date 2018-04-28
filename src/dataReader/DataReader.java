@@ -8,12 +8,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
 
 import policies.SLMS;
 import utils.Customer;
+import utils.CustomerComparator;
 
 
 public class DataReader {
@@ -27,7 +30,8 @@ public class DataReader {
 	static FileOutputStream fos = null;
 	private static BufferedWriter bw = null;
 	private String line = "";
-	public ArrayList<Queue<Customer>> customerArrivalList = new ArrayList<>();
+	public ArrayList<PriorityQueue<Customer>> customerArrivalList = new ArrayList<>();
+	public ArrayList<Customer> unsortedCustomerList = new ArrayList<>();
 
 	
 
@@ -102,13 +106,27 @@ public class DataReader {
 									fos = new FileOutputStream(fout);
 									bw = new BufferedWriter(new OutputStreamWriter(fos));
 									
-								    Queue<Customer> ArrivalQueue = new LinkedList<Customer>();
+									
+									PriorityQueue<Customer> ArrivalQueue = new PriorityQueue<Customer>();
 																
 									while ((line = reader.readLine()) != null) {
 										String[] inputs = line.split(" ");
-										ArrivalQueue.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
+										
+					
+										unsortedCustomerList.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
+										//ArrivalQueue.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
 									
+										
 									}	
+									
+									Comparator<Customer> comparator = new CustomerComparator();
+									ArrivalQueue = new PriorityQueue<Customer>(unsortedCustomerList.size(), comparator);
+									
+									
+									while(!unsortedCustomerList.isEmpty()){
+										ArrivalQueue.add(unsortedCustomerList.remove(0));
+									}
+									
 									customerArrivalList.add(ArrivalQueue);
 									
 						

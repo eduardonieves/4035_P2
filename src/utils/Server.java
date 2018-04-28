@@ -38,14 +38,14 @@ public class Server {
 //	}
 	public void setCurrentCustomer(Customer customer){
 		this.currentCustomer = customer;
+		this.serviceStart();
 	}
 	
 	public Customer getCurrentCustomer(){
 		return this.currentCustomer;
 	}
 	
-	public void serviceStart(Customer customer){
-		this.currentCustomer = customer;
+	public void serviceStart(){
 		serving = true;	
 	}
 	
@@ -54,6 +54,17 @@ public class Server {
 		Customer ctr = currentCustomer;
 		servedCustomersList.add(ctr);
 		this.currentCustomer = null;	
+	}
+	
+	public void takeTurn(int currentTime){
+		
+		if(currentCustomer.reduceServiceTime(currentTime)){
+			serviceEnded();
+		}
+		
+		
+		
+		
 	}
 	
 	

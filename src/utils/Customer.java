@@ -40,8 +40,14 @@ public class Customer {
 		this.changedLine = true;
 	}
 	
-	public void reduceService(){
+	public boolean reduceServiceTime(int t){
 		this.serviceTime --;
+		
+		if(this.serviceTime == 0){
+			this.setDepartureTime(t);
+			return true;
+		}
+		return false;
 	}
 	
 	public int getServiceTime(){
@@ -49,7 +55,7 @@ public class Customer {
 	}
 	
 	public int getArrivalTime(){
-		return this.departureTime;
+		return this.arrivalTime;
 	}
 	
 	public int getWaitingTime(){
@@ -59,5 +65,18 @@ public class Customer {
 	public boolean changedLine(){
 		return this.changedLine;
 	}
+
+//	@Override
+//	public int compareTo(Customer cust) {
+//		// TODO Auto-generated method stub
+//		
+//		if(this.arrivalTime < cust.arrivalTime){
+//			return -1;
+//		}
+//		if(this.arrivalTime > cust.arrivalTime){
+//			return 1;
+//		}
+//		return 0;
+//	}
 
 }

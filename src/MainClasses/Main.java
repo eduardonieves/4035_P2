@@ -2,6 +2,7 @@ package MainClasses;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 import dataReader.DataReader;
@@ -17,13 +18,23 @@ public class Main {
 		try {
 			dataReader.DataReader reader = new dataReader.DataReader();
 			
-			ArrayList<Queue<Customer>> arrivalList =  reader.customerArrivalList;
+			ArrayList<PriorityQueue<Customer>> arrivalList =  reader.customerArrivalList;
 			
-			for(Queue<Customer> queue: arrivalList){
+			for(PriorityQueue<Customer> queue: arrivalList){
+				
+				//For Debugging purpose
+//				while(!queue.isEmpty()){
+//					System.out.println(queue.remove().getArrivalTime());
+//				}
+				
 				SLMS slms1 = new SLMS(1, queue);
 				slms1.runSLMS();
-				SLMS slms3 = new SLMS(3,queue);
-				SLMS slms5 = new SLMS(5,queue);
+//				SLMS slms3 = new SLMS(3,queue);
+//				slms3.runSLMS();
+//				SLMS slms5 = new SLMS(5,queue);
+//				slms5.runSLMS();
+				
+				
 			}
 			
 			
