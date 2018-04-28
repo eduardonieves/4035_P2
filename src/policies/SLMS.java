@@ -15,8 +15,17 @@ public class SLMS implements Policy {
 	
 	public SLMS(int servers){
 		
-		serversList = (Server[]) new Object[servers];
 		ServiceLine serviceLine = new ServiceLine();
+		
+		serversList = new Server[servers];
+		
+		for(int i = 0; i < servers;i++){
+			serversList[i] = new Server(serviceLine);
+		}
+		
+		
+		//serversList = (Server[]) new Object[servers];
+		
 		
 		
 	//	servedCustomers.add(serversList[0].serviceEnded());
