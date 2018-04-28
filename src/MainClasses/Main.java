@@ -1,11 +1,18 @@
 package MainClasses;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import dataReader.DataReader;
+import utils.Customer;
+import utils.Server;
 
 public class Main {
 
+	public static ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
+	public static ArrayList<Server> serversList = new ArrayList<Server>();
+
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -19,5 +26,7 @@ public class Main {
 		}
 
 	}
+	
+
 
 }
