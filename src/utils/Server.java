@@ -1,9 +1,11 @@
 package utils;
 
+import java.util.Queue;
+
 public class Server {
 
 	public boolean Serving;
-	private String QueueID;
+	private Queue QueueID;
 	private boolean hasNext;
 	
 	
@@ -13,10 +15,10 @@ public class Server {
 	public void setServing(boolean serving) {
 		Serving = serving;
 	}
-	public String getQueueID() {
+	public Queue getQueueID() {
 		return QueueID;
 	}
-	public void setQueueID(String queueID) {
+	public void setQueueID(Queue queueID) {
 		QueueID = queueID;
 	}
 	public boolean HasNext() {
