@@ -15,6 +15,7 @@ public class SLMS implements Policy {
 	public ArrayList<Server> serversList;
 	ServiceLine serviceLine;
 
+	int t1;
 
 	public SLMS(int servers, PriorityQueue<Customer> customersQueue ){
 
@@ -51,18 +52,11 @@ public class SLMS implements Policy {
 		while(!serviceLine.customerQueue.isEmpty()){
 
 
-			//First Step: Check if a service ends
-			for(Server s: serviceLine.serversList){
-				//Servers take a turn from their customers
-				if(s.serving){
-					s.takeTurn(t);
-				}
-
-			}
+			serviceCustomers(t);
 
 			//Checks all customers in line to see if is their turn
 			while(!serviceLine.customerQueue.isEmpty()){
-				System.out.println("Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
+				System.out.println("Current Time: " + t + ", Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
 
 				if(serviceLine.frontCustomer().getArrivalTime() <= t ){
 
@@ -82,18 +76,21 @@ public class SLMS implements Policy {
 
 			t++;
 		}
-
+		
+		t1 = t;
 	}
 
-	private void proccessTurn(){
+	private void serviceCustomers(int t){
 
 
+		//First Step: Check if a service ends
+		for(Server s: serviceLine.serversList){
+			//Servers take a turn from their customers
+			if(s.serving){
+				s.takeTurn(t);
+			}
 
-
-
-
-
-
+		}
 
 	}
 
@@ -105,7 +102,12 @@ public class SLMS implements Policy {
 		this.servedCustomers.add(servedCustomer);
 	}
 
-
+	public String getStats() {
+		int numOfCustomers = servedCustomers.size() + 1;
+		float t2 = 0;
+		float m = 0;
+		return "SLMS " + serversList.size() + ":     " + t1 +  "     t2 + m";
+	}
 
 
 

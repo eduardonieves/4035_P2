@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -32,7 +34,7 @@ public class DataReader {
 	private String line = "";
 	public ArrayList<PriorityQueue<Customer>> customerArrivalList = new ArrayList<>();
 	public ArrayList<Customer> unsortedCustomerList = new ArrayList<>();
-
+	public ArrayList<String> outputFileList = new ArrayList<>();
 	
 
 	public DataReader() throws FileNotFoundException {
@@ -47,7 +49,6 @@ public class DataReader {
 			if(file.exists()){
 
 				try {
-					fout = new File(fileName+"_OUT.txt");
 					if(file.getName().endsWith(".txt")){
 						try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 							String line;
@@ -96,15 +97,7 @@ public class DataReader {
 									*/
 
 									
-									String[] fileNameSplit = fileName.split("/");
-									fileName = fileNameSplit[1];
-									String[] fileNameSplit2 = fileName.split("\\.");
-									fileName = fileNameSplit2[0];
 									
-									fout = new File(fileName+"_OUT.txt");
-						
-									fos = new FileOutputStream(fout);
-									bw = new BufferedWriter(new OutputStreamWriter(fos));
 									
 									
 									PriorityQueue<Customer> ArrivalQueue = new PriorityQueue<Customer>();
@@ -128,8 +121,13 @@ public class DataReader {
 									}
 									
 									customerArrivalList.add(ArrivalQueue);
+									outputFileList.add(fileName);
 									
-						
+									String[] fileNameSplit = fileName.split("/");
+									fileName = fileNameSplit[1];
+									String[] fileNameSplit2 = fileName.split("\\.");
+									fileName = fileNameSplit2[0];
+									writeToFile(fileName,"Number of Customers: " + ArrivalQueue.size(), false);
 								}
 								else
 								{
@@ -138,12 +136,7 @@ public class DataReader {
 									String[] fileNameSplit2 = fileName.split("\\.");
 									fileName = fileNameSplit2[0];
 									
-									fout = new File(fileName+"_OUT.txt");
-									
-									fos = new FileOutputStream(fout);
-									bw = new BufferedWriter(new OutputStreamWriter(fos));
-									bw.write("Input file not found.");
-									bw.close();
+									writeToFile(fileName, "Input file not found", false);
 								}
 									
 							}
@@ -166,12 +159,44 @@ public class DataReader {
 			}
 	
 	}
-	/**
-	 * 
-	 * @return
-	 * @throws FileNotFoundException 
-	 */
+	
+	public void writeToFile(String file, String text, boolean append) {
+		
+		
+		try {
+			
+			String[] fileNameSplit = file.split("/");
+			file = fileNameSplit[1];
+			String[] fileNameSplit2 = file.split("\\.");
+			file = fileNameSplit2[0];
+			
+			fout = new File(file+"_OUT.txt"); 
+			FileWriter fw = new FileWriter(fout, append);
+			//fos = new FileOutputStream(fout);
+			bw = new BufferedWriter(fw);
+			PrintWriter out = new PrintWriter(bw);
+			out.println(text);
+			out.close();
 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			try {
+				
+				fout = new File(file+"_OUT.txt"); 
+				FileWriter fw = new FileWriter(fout, append);
+				//fos = new FileOutputStream(fout);
+				bw = new BufferedWriter(fw);
+				PrintWriter out = new PrintWriter(bw);
+				out.println(text);
+				out.close();
+
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+		}
+	}
+	
 	
 	/*
 	public Object[][] readDataFiles() throws FileNotFoundException {
