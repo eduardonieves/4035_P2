@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 import dataReader.DataReader;
+import policies.MLMS;
 import policies.SLMS;
 import utils.Customer;
 import utils.Server;
@@ -27,16 +28,18 @@ public class Main {
 //					System.out.println(queue.remove().getArrivalTime());
 //				}
 				
-				SLMS slms1 = new SLMS(1, queue);
-				slms1.runSLMS();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms1.getStats(), true);
-				SLMS slms3 = new SLMS(3,queue);
-				slms3.runSLMS();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms3.getStats(), true);
+//				SLMS slms1 = new SLMS(1, queue);
+//				slms1.runSLMS();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms1.getStats(), true);
+//				SLMS slms3 = new SLMS(3,queue);
+//				slms3.runSLMS();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms3.getStats(), true);
 //				SLMS slms5 = new SLMS(5,queue);
 //				slms5.runSLMS();
 				
-
+				MLMS mlms1 = new MLMS(1, queue);
+				mlms1.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);
 				
 			}
 			

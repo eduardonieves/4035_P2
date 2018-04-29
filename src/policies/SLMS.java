@@ -49,7 +49,7 @@ public class SLMS implements Policy {
 
 		int t = 0;
 
-		while(!serviceLine.customerQueue.isEmpty()){
+		while(!serviceLine.customerQueue.isEmpty()){ 
 
 
 			serviceCustomers(t);

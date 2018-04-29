@@ -21,6 +21,12 @@ public class Server {
 		this.servedCustomersList = servedCustomersList;
 	}
 	
+	public Server(ArrayList<Customer> servedCustomersList){
+		this.serving = false;
+		this.currentCustomer = null;
+		this.servedCustomersList = servedCustomersList;
+	}
+	
 	public boolean isServing() {
 		return serving;
 	}
