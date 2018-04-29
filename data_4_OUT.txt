@@ -1,9 +1,7 @@
 Number of Customers: 1
-
 SLMS 1:     11     0.0     0.0
 SLMS 3:     11     0.0     0.0
 SLMS 5:     11     0.0     0.0
 MLMS 1:     12     1.0     0.0
 MLMS 3:     12     1.0     0.0
 MLMS 5:     12     1.0     0.0
-

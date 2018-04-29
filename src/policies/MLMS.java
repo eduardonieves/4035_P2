@@ -102,7 +102,7 @@ public class MLMS implements Policy{
 			ServiceLine minLine = serviceLines.get(0);
 			for(ServiceLine line : serviceLines)
 			{
-				if(line.customerQueue.size() < minLine.customerQueue.size()) {
+				if(line.customerQueue.size() < minLine.customerQueue.size() && !line.getServersList().get(0).isServing()) {
 					minLine = line;
 				}
 			}
