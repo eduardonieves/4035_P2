@@ -117,9 +117,14 @@ public class MLMS implements Policy{
 	}
 
 	public String getStats() {
-		int numOfCustomers = servedCustomers.size() + 1;
 		float t2 = 0;
 		float m = 0;
-		return "MLMS " + serversList.size() + ":     " + t1 +  "     t2 + m";
+
+		//Calculating average waiting times
+		for(int i=0; i<servedCustomers.size(); i++) {
+			t2 += servedCustomers.get(i).getWaitingTime();
+		}
+		t2 = t2/servedCustomers.size();
+		return "MLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
 	}
 }

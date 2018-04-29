@@ -59,6 +59,7 @@ public class Server {
 	public void serviceEnded(){
 		serving = false;
 		Customer ctr = currentCustomer;
+		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getArrivalTime());
 		servedCustomersList.add(ctr);
 		this.currentCustomer = null;	
 	}

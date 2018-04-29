@@ -2,6 +2,6 @@ Number of Customers: 9
 SLMS 1:     55     t2 + m
 SLMS 3:     14     t2 + m
 SLMS 5:     11     t2 + m
-MLMS 1:     67     t2 + m
-MLMS 3:     31     t2 + m
-MLMS 5:     31     t2 + m
+MLMS 1:     67     31.222221     0.0
+MLMS 3:     31     9.333333     0.0
+MLMS 5:     31     6.6666665     0.0

@@ -36,6 +36,10 @@ public class Customer {
 		this.departureTime = t;
 	}
 	
+	public int getDepartureTime(){
+		return this.departureTime;
+	}
+	
 	public void toogleChangeLine(){
 		this.changedLine = true;
 	}
