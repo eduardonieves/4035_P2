@@ -29,7 +29,7 @@ public class Customer {
 	}
 	
 	public void setWaitingTime(int t){
-		this.waitingTime = t - this.arrivalTime;
+		this.waitingTime = t;
 	}
 	
 	public void setDepartureTime(int t){

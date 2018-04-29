@@ -38,8 +38,8 @@ public class Main {
 				SLMS slms5 = new SLMS(5,queue);
 				slms5.runSLMS();
 				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms5.getStats(), true);
-
-				//MLMS
+//
+//				//MLMS
 				MLMS mlms1 = new MLMS(1, queue);
 				mlms1.runPolicy();
 				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);

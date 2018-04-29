@@ -53,15 +53,16 @@ public class SLMS implements Policy {
 
 		int t = 0;
 
-		while(!serviceLine.customerQueue.isEmpty()){ 
+		while(!serviceLine.customerQueue.isEmpty() || this.currentlyServing()){ 
 
+			
 
 			serviceCustomers(t);
 
 			//Checks all customers in line to see if is their turn
 			while(!serviceLine.customerQueue.isEmpty()){
 				
-				//System.out.println("Current Time: " + t + ", Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
+				System.out.println("Next in Line: Current Time: " + t + ", Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
 
 				if(serviceLine.frontCustomer().getArrivalTime() <= t ){
 
@@ -85,6 +86,20 @@ public class SLMS implements Policy {
 		t1 = t;
 	}
 
+	private boolean currentlyServing(){
+		
+		for(Server s: serviceLine.serversList){
+			//Servers take a turn from their customers
+			if(s.serving){
+				return true;
+			}
+
+		}
+		return false;
+		
+	}
+	
+	
 	private void serviceCustomers(int t){
 
 
@@ -111,7 +126,13 @@ public class SLMS implements Policy {
 		int numOfCustomers = servedCustomers.size() + 1;
 		float t2 = 0;
 		float m = 0;
-		return "SLMS " + serversList.size() + ":     " + t1 +  "     t2 + m";
+		
+		//Calculating average waiting times
+				for(int i=0; i<servedCustomers.size(); i++) {
+					t2 += servedCustomers.get(i).getWaitingTime();
+				}
+				t2 = t2/servedCustomers.size();
+				return "SLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
 	}
 
 

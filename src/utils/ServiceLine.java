@@ -46,6 +46,7 @@ public class ServiceLine {
 		
 		for(Server s: serversList){
 			if(!s.serving){
+				
 				s.setCurrentCustomer(customerQueue.remove(), t);
 				return true;
 			}
