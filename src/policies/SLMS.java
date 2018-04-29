@@ -14,10 +14,14 @@ public class SLMS implements Policy {
 	public ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
 	public ArrayList<Server> serversList;
 	ServiceLine serviceLine;
+	private PriorityQueue<Customer> ArrivalsQueue;
+
 
 	int t1;
 
 	public SLMS(int servers, PriorityQueue<Customer> customersQueue ){
+
+		this.ArrivalsQueue = new PriorityQueue<Customer>(customersQueue);
 
 		serviceLine = new ServiceLine();
 
@@ -29,8 +33,8 @@ public class SLMS implements Policy {
 
 		serviceLine.setServersList(serversList);
 
-		while(!customersQueue.isEmpty()){
-			serviceLine.addCustomer(customersQueue.remove());
+		while(!ArrivalsQueue.isEmpty()){
+			serviceLine.addCustomer(ArrivalsQueue.remove());
 		}
 
 		//	servedCustomers.add(serversList[0].serviceEnded());
@@ -56,12 +60,13 @@ public class SLMS implements Policy {
 
 			//Checks all customers in line to see if is their turn
 			while(!serviceLine.customerQueue.isEmpty()){
-				System.out.println("Current Time: " + t + ", Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
+				
+				//System.out.println("Current Time: " + t + ", Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
 
 				if(serviceLine.frontCustomer().getArrivalTime() <= t ){
 
 
-					if (!serviceLine.sendCustomerToServer()){
+					if (!serviceLine.sendCustomerToServer(t)){
 						//All servers are occupied no need to check for other Customers
 						break;
 

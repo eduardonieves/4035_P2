@@ -42,11 +42,11 @@ public class ServiceLine {
 		return customerQueue.remove();
 	}
 	
-	public boolean sendCustomerToServer(){
+	public boolean sendCustomerToServer(int t){
 		
 		for(Server s: serversList){
 			if(!s.serving){
-				s.setCurrentCustomer(customerQueue.remove());
+				s.setCurrentCustomer(customerQueue.remove(), t);
 				return true;
 			}
 		}

@@ -42,16 +42,17 @@ public class Server {
 //	public boolean HasNext() {
 //		return hasNext;
 //	}
-	public void setCurrentCustomer(Customer customer){
+	public void setCurrentCustomer(Customer customer, int t){
 		this.currentCustomer = customer;
-		this.serviceStart();
+		this.serviceStart(t);
 	}
 	
 	public Customer getCurrentCustomer(){
 		return this.currentCustomer;
 	}
 	
-	public void serviceStart(){
+	public void serviceStart(int t){
+		currentCustomer.setDepartureTime(t +  currentCustomer.getServiceTime());
 		serving = true;	
 	}
 	
@@ -64,7 +65,7 @@ public class Server {
 	
 	public void takeTurn(int currentTime){
 		
-		if(currentCustomer.reduceServiceTime(currentTime)){
+		if(currentCustomer.isDone(currentTime)){
 			serviceEnded();
 		}
 		

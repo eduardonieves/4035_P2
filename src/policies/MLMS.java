@@ -20,7 +20,7 @@ public class MLMS implements Policy{
 	
 	public MLMS(int servers, PriorityQueue<Customer> customersQueue ){
 
-		this.ArrivalsQueue = customersQueue;
+		this.ArrivalsQueue = new PriorityQueue<Customer>(customersQueue);
 		totalCustomers = customersQueue.size();
 		serviceLines = new ArrayList<>();
 		serversList = new ArrayList<>();
@@ -44,6 +44,9 @@ public class MLMS implements Policy{
 			
 			//Add the newLine to the service line list
 			serviceLines.add(newLine);
+			
+			//attach queue to server
+			currentServer.setQueueID(newLine);
 		}
 	}
 	
@@ -78,7 +81,7 @@ public class MLMS implements Policy{
 				}
 				else {
 					try {
-						s.setCurrentCustomer(line.removeCustomer());
+						s.setCurrentCustomer(line.removeCustomer(), t);
 
 					}catch(NoSuchElementException e) {
 						//no more customers in line. line is empty
@@ -100,7 +103,7 @@ public class MLMS implements Policy{
 			for(ServiceLine line : serviceLines)
 			{
 				if(line.customerQueue.size() < minLine.customerQueue.size()) {
-					
+					minLine = line;
 				}
 			}
 			

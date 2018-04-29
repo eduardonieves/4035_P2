@@ -40,11 +40,8 @@ public class Customer {
 		this.changedLine = true;
 	}
 	
-	public boolean reduceServiceTime(int t){
-		this.serviceTime --;
-		
-		if(this.serviceTime == 0){
-			this.setDepartureTime(t);
+	public boolean isDone(int t){		
+		if(t == departureTime){
 			return true;
 		}
 		return false;
