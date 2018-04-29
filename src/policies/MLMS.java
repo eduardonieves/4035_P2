@@ -125,6 +125,17 @@ public class MLMS implements Policy{
 			t2 += servedCustomers.get(i).getWaitingTime();
 		}
 		t2 = t2/servedCustomers.size();
+		
+		//Calculate Overpass
+		for(int i=0; i<servedCustomers.size(); i++)
+			for(int j=i+1; j<servedCustomers.size(); j++)
+			{
+				if(servedCustomers.get(j).getArrivalTime() < servedCustomers.get(i).getArrivalTime()) {
+					m++;
+				}
+			}
+		m = m/servedCustomers.size();
+		
 		return "MLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
 	}
 }

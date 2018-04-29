@@ -75,11 +75,7 @@ public class Server {
 		if(currentCustomer.isDone(currentTime)){
 			serviceEnded();
 		}
-		
-		
-		
-		
+			
 	}
-	
 	
 }
