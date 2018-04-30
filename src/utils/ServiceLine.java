@@ -30,8 +30,17 @@ public class ServiceLine {
 		this.serversList = serversList;
 	}
 
+	//Used for SLMS
 	public void addCustomer(Customer c){
 		customerQueue.add(c);
+	}
+	
+	//Used for other Policies
+	public void addCustomer(Customer c, int t){
+		if (!this.getServersList().get(0).isServing()) 
+			this.getServersList().get(0).setCurrentCustomer(c, t);
+		else
+			customerQueue.add(c);
 	}
 	
 	public Customer removeCustomer() throws NoSuchElementException{

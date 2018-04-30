@@ -107,16 +107,17 @@ public class MLMS implements Policy{
 			ServiceLine minLine = serviceLines.get(0);
 			for(ServiceLine line : serviceLines)
 			{
+				if(!line.serversList.get(0).isServing()) {
+					minLine = line;
+					break;
+				}
 				if(line.customerQueue.size() < minLine.customerQueue.size()) {
-					if(!line.getServersList().get(0).isServing())
-						line.getServersList().get(0).setCurrentCustomer(ArrivalsQueue.remove(), t);
-					else
-						minLine = line;
+					minLine = line;
 				}
 			}
 			
 			//send customer to the line with minimum waiting time
-			minLine.addCustomer(ArrivalsQueue.remove());
+			minLine.addCustomer(ArrivalsQueue.remove(), t);
 			
 			
 			newArrival(t);  //to check if the next customer in arrival queue arrived at the same time
