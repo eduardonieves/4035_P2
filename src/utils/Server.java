@@ -13,6 +13,7 @@ public class Server {
 //	private boolean hasNext;
 	private Customer currentCustomer;
 	public ArrayList<Customer> servedCustomersList;
+	public  int serverID;
 	
 	public Server(ServiceLine serviceLineID, ArrayList<Customer> servedCustomersList){
 		this.serviceLineID = serviceLineID;
@@ -21,10 +22,19 @@ public class Server {
 		this.servedCustomersList = servedCustomersList;
 	}
 	
+	
+	
 	public Server(ArrayList<Customer> servedCustomersList){
 		this.serving = false;
 		this.currentCustomer = null;
 		this.servedCustomersList = servedCustomersList;
+	}
+	
+	public void setServerID(int id){
+		this.serverID = id;
+	}
+	public int getServerID(){
+		return this.serverID;
 	}
 	
 	public boolean isServing() {
@@ -61,11 +71,18 @@ public class Server {
 		servedCustomersList.add(ctr);
 
 		System.out.println("Serving Now: Arrival: "+ ctr.getArrivalTime() + ", Current Time: " + t + ", Waiting Time: " + ctr.getWaitingTime());
+		currentCustomer.setWaitingTime(currentCustomer.getDepartureTime() - currentCustomer.getServiceTime() - currentCustomer.getArrivalTime());
+		System.out.println("Serving Now: Arrival: "+ currentCustomer.getArrivalTime() + ", ID: " + serverID + ", Waiting Time: " + currentCustomer.getWaitingTime());
 		
 	}
 	
 	public void serviceEnded(){
 		serving = false;
+		Customer ctr = currentCustomer;
+	//	ctr.setWaitingTime((ctr.getDepartureTime() - ctr.getServiceTime()) - ctr.getArrivalTime());
+		System.out.println("Departuring Now: Arrival: "+ ctr.getArrivalTime() + " ID: " + serverID);
+//		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getArrivalTime());
+		servedCustomersList.add(ctr);
 		this.currentCustomer = null;	
 	}
 	

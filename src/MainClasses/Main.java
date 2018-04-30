@@ -30,15 +30,15 @@ public class Main {
 //				}
 				
 				//SLMS
-//				SLMS slms1 = new SLMS(1, queue);
-//				slms1.runSLMS();
-//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms1.getStats(), true);
-//				SLMS slms3 = new SLMS(3,queue);
-//				slms3.runSLMS();
-//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms3.getStats(), true);
-//				SLMS slms5 = new SLMS(5,queue);
-//				slms5.runSLMS();
-//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms5.getStats(), true);
+				SLMS slms1 = new SLMS(1, queue);
+				slms1.runSLMS();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms1.getStats(), true);
+				SLMS slms3 = new SLMS(3,queue);
+				slms3.runSLMS();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms3.getStats(), true);
+				SLMS slms5 = new SLMS(5,queue);
+				slms5.runSLMS();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms5.getStats(), true);
 
 				//MLMS
 //				MLMS mlms1 = new MLMS(1, queue);
@@ -63,6 +63,15 @@ public class Main {
 //				MLMSBWT mlmsbwt5 = new MLMSBWT(5, queue);
 //				mlmsbwt5.runMLMSBWT();
 //				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt5.getStats(), true);
+				MLMSBWT mlmsbwt1 = new MLMSBWT(1, queue);
+				mlmsbwt1.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt1.getStats(), true);
+				MLMSBWT mlmsbwt3 = new MLMSBWT(3, queue);
+				mlmsbwt3.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt3.getStats(), true);
+				MLMSBWT mlmsbwt5 = new MLMSBWT(5, queue);
+				mlmsbwt5.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt5.getStats(), true);
 				
 			}
 			
