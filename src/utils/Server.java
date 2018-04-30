@@ -68,7 +68,7 @@ public class Server {
 		
 		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getServiceTime() - ctr.getArrivalTime()-1);
 		
-		//servedCustomersList.add(ctr);
+		servedCustomersList.add(ctr);
 		currentCustomer.setWaitingTime(currentCustomer.getDepartureTime() - currentCustomer.getServiceTime() - currentCustomer.getArrivalTime());
 		System.out.println("Serving Now: Arrival: "+ currentCustomer.getArrivalTime() + ", ID: " + serverID + ", Waiting Time: " + currentCustomer.getWaitingTime());
 		
@@ -80,7 +80,7 @@ public class Server {
 	//	ctr.setWaitingTime((ctr.getDepartureTime() - ctr.getServiceTime()) - ctr.getArrivalTime());
 		System.out.println("Departuring Now: Arrival: "+ ctr.getArrivalTime() + " ID: " + serverID);
 //		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getArrivalTime());
-		servedCustomersList.add(ctr);
+	//	servedCustomersList.add(ctr);
 		this.currentCustomer = null;	
 	}
 	
