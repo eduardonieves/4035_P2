@@ -37,7 +37,7 @@ public class ServiceLine {
 	
 	//Used for other Policies
 	public void addCustomer(Customer c, int t){
-		if (!this.getServersList().get(0).isServing()) 
+		if (!this.getServersList().get(0).isServing() && customerQueue.isEmpty()) 
 			this.getServersList().get(0).setCurrentCustomer(c, t);
 		else
 			customerQueue.add(c);
@@ -71,13 +71,19 @@ public class ServiceLine {
 		}
 	}
 	
-	public int totalWaitingTime(){
-		
+	public int totalWaitingTime(int t){
 		int waitingTime = 0;
+		
+		//This chunk should be used for MSLMBSS, i think...
+		
+//		if(this.serversList.get(0).isServing()){
+//			waitingTime = this.serversList.get(0).getCurrentCustomer().getDepartureTime() - t;
+//		}
+		
 		
 		for(Customer c: customerQueue){
 			
-			waitingTime += c.getWaitingTime();
+			waitingTime += c.getServiceTime();
 			
 		}
 		
