@@ -62,9 +62,13 @@ public class Server {
 	}
 	
 	public void serviceStart(int t){
-		currentCustomer.setDepartureTime(t +  currentCustomer.getServiceTime());
+		Customer ctr = currentCustomer;
+		ctr.setDepartureTime(t +  ctr.getServiceTime());
 		serving = true;
 		
+		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getServiceTime() - ctr.getArrivalTime()-1);
+		
+		//servedCustomersList.add(ctr);
 		currentCustomer.setWaitingTime(currentCustomer.getDepartureTime() - currentCustomer.getServiceTime() - currentCustomer.getArrivalTime());
 		System.out.println("Serving Now: Arrival: "+ currentCustomer.getArrivalTime() + ", ID: " + serverID + ", Waiting Time: " + currentCustomer.getWaitingTime());
 		

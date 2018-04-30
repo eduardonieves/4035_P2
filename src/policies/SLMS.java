@@ -123,16 +123,16 @@ public class SLMS implements Policy {
 	}
 
 	public String getStats() {
-		int numOfCustomers = servedCustomers.size() + 1;
 		float t2 = 0;
 		float m = 0;
 		
 		//Calculating average waiting times
-				for(int i=0; i<servedCustomers.size(); i++) {
-					t2 += servedCustomers.get(i).getWaitingTime();
-				}
-				t2 = t2/servedCustomers.size();
-				return "SLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
+		for(int i=0; i<servedCustomers.size(); i++) {
+			t2 += servedCustomers.get(i).getWaitingTime();
+		}
+		t2 = t2/servedCustomers.size();
+		
+		return "SLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
 	}
 
 

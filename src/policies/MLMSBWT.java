@@ -55,13 +55,13 @@ public class MLMSBWT {
 	
 	public void runPolicy() {
 		int t = 0;
-		System.out.println("Time:" + t);
+		System.out.println("		Time:" + t);
 
 		while(servedCustomers.size() != totalCustomers) {
 			
 			processTurn(t);
 			t++;
-			System.out.println("Time:" + t);
+			System.out.println("		Time:" + t);
 
 		}
 		t1 = t-1;
