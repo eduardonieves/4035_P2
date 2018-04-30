@@ -64,7 +64,7 @@ public class MLMSBWT {
 			System.out.println("Time:" + t);
 
 		}
-		t1 = t;
+		t1 = t-1;
 	}
 	
 	public void processTurn(int t) {
@@ -110,7 +110,10 @@ public class MLMSBWT {
 			ServiceLine minLine = serviceLines.get(0);
 			for(ServiceLine line : serviceLines)
 			{
+				System.out.println(line.totalWaitingTime(t) + " vs "+ minLine.totalWaitingTime(t));
 				if(line.totalWaitingTime(t) < minLine.totalWaitingTime(t)){
+					
+			//		if((!line.serversList.get(0).isServing() && minLine.serversList.get(0).isServing()) || (line.serversList.get(0).isServing() && minLine.serversList.get(0).isServing()))
 					
 					minLine = line;
 				}

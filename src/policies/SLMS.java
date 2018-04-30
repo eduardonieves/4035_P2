@@ -56,7 +56,7 @@ public class SLMS implements Policy {
 		while(!serviceLine.customerQueue.isEmpty() || this.currentlyServing()){ 
 
 			
-
+			System.out.println("Time:" + t);
 			serviceCustomers(t);
 
 			//Checks all customers in line to see if is their turn

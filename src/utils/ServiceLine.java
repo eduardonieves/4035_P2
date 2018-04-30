@@ -39,8 +39,10 @@ public class ServiceLine {
 	public void addCustomer(Customer c, int t){
 		if (!this.getServersList().get(0).isServing() && customerQueue.isEmpty()) 
 			this.getServersList().get(0).setCurrentCustomer(c, t);
-		else
+		else{
+			System.out.println("In queue for "+ this.serversList.get(0).serverID);
 			customerQueue.add(c);
+		}
 	}
 	
 	public Customer removeCustomer() throws NoSuchElementException{
@@ -76,9 +78,9 @@ public class ServiceLine {
 		
 		//This chunk should be used for MSLMBSS, i think...
 		
-//		if(this.serversList.get(0).isServing()){
-//			waitingTime = this.serversList.get(0).getCurrentCustomer().getDepartureTime() - t;
-//		}
+		if(this.serversList.get(0).isServing()){
+			waitingTime = this.serversList.get(0).getCurrentCustomer().getDepartureTime() - t;
+		}
 		
 		
 		for(Customer c: customerQueue){

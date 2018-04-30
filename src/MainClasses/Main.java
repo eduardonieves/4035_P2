@@ -41,15 +41,15 @@ public class Main {
 				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms5.getStats(), true);
 
 				//MLMS
-//				MLMS mlms1 = new MLMS(1, queue);
-//				mlms1.runPolicy();
-//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);
-//				MLMS mlms3 = new MLMS(3, queue);
-//				mlms3.runPolicy();
-//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms3.getStats(), true);
-//				MLMS mlms5 = new MLMS(5, queue);
-//				mlms5.runPolicy();
-//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms5.getStats(), true);
+				MLMS mlms1 = new MLMS(1, queue);
+				mlms1.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);
+				MLMS mlms3 = new MLMS(3, queue);
+				mlms3.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms3.getStats(), true);
+				MLMS mlms5 = new MLMS(5, queue);
+				mlms5.runPolicy();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms5.getStats(), true);
 				
 				//MLMSBBL
 

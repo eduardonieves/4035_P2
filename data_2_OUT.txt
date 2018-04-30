@@ -1,7 +1,10 @@
-Number of Customers: 9
-SLMS 1:     58     23.222221     0.0
-SLMS 3:     25     1.7777778     0.0
-SLMS 5:     22     0.0     0.0
-MLMSBWT 1:     58     23.222221     0.0
-MLMSBWT 3:     29     4.111111     1.2222222
-MLMSBWT 5:     29     3.6666667     1.5555556
+Number of Customers: 10
+SLMS 1:     54     8.9     0.0
+SLMS 3:     27     0.7     0.0
+SLMS 5:     24     0.0     0.0
+MLMS 1:     54     8.9     0.0
+MLMS 3:     31     1.0     0.1
+MLMS 5:     24     0.0     0.0
+MLMSBWT 1:     53     8.9     0.0
+MLMSBWT 3:     26     0.7     0.0
+MLMSBWT 5:     23     0.0     0.0
