@@ -1,6 +1,7 @@
 package policies;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
 import utils.Customer;
@@ -11,97 +12,129 @@ public class MLMSBWT {
 
 	public ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
 	public ArrayList<Server> serversList;
-	ServiceLine serviceLine;
+	public ArrayList<ServiceLine> serviceLines;
 	private PriorityQueue<Customer> ArrivalsQueue;
+	private int totalCustomers;
+
 
 
 	int t1;
 	
 	public MLMSBWT(int servers, PriorityQueue<Customer> customersQueue ){
-		
+
 		this.ArrivalsQueue = new PriorityQueue<Customer>(customersQueue);
-
-		serviceLine = new ServiceLine();
-
+		totalCustomers = customersQueue.size();
+		serviceLines = new ArrayList<>();
 		serversList = new ArrayList<>();
 
 		for(int i = 0; i < servers;i++){
-			serversList.add(new Server(serviceLine, servedCustomers));
-		}
-
-		serviceLine.setServersList(serversList);
-
-		while(!ArrivalsQueue.isEmpty()){
-			serviceLine.addCustomer(ArrivalsQueue.remove());
+			//Create a new Server
+			Server currentServer = new Server(servedCustomers);
+			currentServer.setServerID(i+1);
+			
+			//Create a server list using only this new server
+			ArrayList<Server> currentServerAsList = new ArrayList<>();
+			currentServerAsList.add(currentServer);
+			
+			//create a new Service Line
+			ServiceLine newLine = new ServiceLine();
+			
+			//Add the current server to the list of servers 
+			serversList.add(currentServer);
+			
+			//add the current server as a list to the respective service line (link server with service line)
+			newLine.setServersList(currentServerAsList);
+			
+			//Add the newLine to the service line list
+			serviceLines.add(newLine);
+			
+			//attach queue to server
+			currentServer.setQueueID(newLine);
 		}
 	}
 	
-	
-	
-	public void runMLMSBWT(){
+	public void runPolicy() {
 		int t = 0;
-	
-		while(!serviceLine.customerQueue.isEmpty() || this.currentlyServing()){ 
-			System.out.println("Time:" + t);
-			serviceCustomers(t);
-			
-			//Checks all customers in line to see if is their turn
-			while(!serviceLine.customerQueue.isEmpty()){
-	
-				System.out.println("Next in Line: Current Time: " + t + ", Arrival Time: "+ serviceLine.frontCustomer().getArrivalTime() + ", Service Time: "+serviceLine.frontCustomer().getServiceTime());
-				if(serviceLine.frontCustomer().getArrivalTime() <= t ){
-					
-					//Monitor sends Customer to line with less waiting time
-					Server minServer = serversList.get(0);
-					for(Server s: serversList){
-						if(minServer.getQueueID().totalWaitingTime() < s.getQueueID().totalWaitingTime()){
-							minServer = s;
-						}
-						
-					}
-					
-					if (!minServer.getQueueID().sendCustomerToServer(t)){
-						//All servers are occupied no need to check for other Customers
-						break;
+		System.out.println("Time:" + t);
 
-					}	
-				}else{
-					//Customers haven't arrived yet
-					break;
-				}	
-			}
+		while(servedCustomers.size() != totalCustomers) {
+			
+			processTurn(t);
 			t++;
+			System.out.println("Time:" + t);
+
 		}
 		t1 = t;
 	}
+	
+	public void processTurn(int t) {
+		
+		serviceCustomers(t);
+		newArrival(t);
+		
+	}
+	
 	
 	private void serviceCustomers(int t){
 
 
 		//First Step: Check if a service ends
-		for(Server s: serviceLine.serversList){
-			//Servers take a turn from their customers
-			if(s.serving){
-				s.takeTurn(t);
+		for (ServiceLine line : serviceLines)
+		{
+			for(Server s: line.serversList){
+				//Servers take a turn from their customers
+				if(s.serving){
+					s.takeTurn(t);
+				}
+				else {
+					try {
+						s.setCurrentCustomer(line.removeCustomer(), t);
+
+					}catch(NoSuchElementException e) {
+						//no more customers in line. line is empty
+					}
+				}
 			}
-
 		}
-
 	}
 	
-	private boolean currentlyServing(){
-		
-		for(Server s: serviceLine.serversList){
-			//Servers take a turn from their customers
-			if(s.serving){
-				return true;
+	
+	private void newArrival(int t) {
+		if (!ArrivalsQueue.isEmpty() && ArrivalsQueue.peek().getArrivalTime() == t)
+		{
+			System.out.println("Next in Line: Current Time: " + t + ", Arrival Time: "+ ArrivalsQueue.peek().getArrivalTime() + ", Service Time: "+ArrivalsQueue.peek().getServiceTime());
+
+			//the customer arrived
+			
+			//check for line with minimum waiting time
+			ServiceLine minLine = serviceLines.get(0);
+			for(ServiceLine line : serviceLines)
+			{
+				if(line.totalWaitingTime(t) < minLine.totalWaitingTime(t)){
+					
+					minLine = line;
+				}
+				
+//				if(!line.serversList.get(0).isServing()) {
+//					minLine = line;
+//					break;
+//				}
+//				if(line.customerQueue.size() < minLine.customerQueue.size()) {
+//					minLine = line;
+//				}
 			}
+			
+			//send customer to the line with minimum waiting time
+			minLine.addCustomer(ArrivalsQueue.remove(), t);
+			
+			
+			newArrival(t);  //to check if the next customer in arrival queue arrived at the same time
 
 		}
-		return false;
 		
+		serviceCustomers(t);
 	}
-	
+
 	public String getStats() {
 		float t2 = 0;
 		float m = 0;
