@@ -1,1 +1,2 @@
 Number of Customers: 9
+MLMS 3:     37     2.5555556     0.11111111
