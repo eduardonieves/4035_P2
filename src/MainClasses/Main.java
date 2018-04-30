@@ -7,6 +7,7 @@ import java.util.Queue;
 
 import dataReader.DataReader;
 import policies.MLMS;
+import policies.MLMSBWT;
 import policies.SLMS;
 import utils.Customer;
 import utils.Server;
@@ -43,16 +44,25 @@ public class Main {
 //				MLMS mlms1 = new MLMS(1, queue);
 //				mlms1.runPolicy();
 //				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);
-				MLMS mlms3 = new MLMS(3, queue);
-				mlms3.runPolicy();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms3.getStats(), true);
+//				MLMS mlms3 = new MLMS(3, queue);
+//				mlms3.runPolicy();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms3.getStats(), true);
 //				MLMS mlms5 = new MLMS(5, queue);
 //				mlms5.runPolicy();
 //				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms5.getStats(), true);
 				
 				//MLMSBBL
-				
+
 				//MLMSBWT
+				MLMSBWT mlmsbwt1 = new MLMSBWT(1, queue);
+				mlmsbwt1.runMLMSBWT();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt1.getStats(), true);
+				MLMSBWT mlmsbwt3 = new MLMSBWT(3, queue);
+				mlmsbwt3.runMLMSBWT();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt3.getStats(), true);
+				MLMSBWT mlmsbwt5 = new MLMSBWT(5, queue);
+				mlmsbwt5.runMLMSBWT();
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt5.getStats(), true);
 				
 			}
 			

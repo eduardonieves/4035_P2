@@ -1,1 +1,4 @@
 Number of Customers: 1
+MLMSBWT 1:     11     0.0     0.0
+MLMSBWT 3:     11     0.0     0.0
+MLMSBWT 5:     11     0.0     0.0
