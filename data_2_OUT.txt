@@ -1,2 +1,1 @@
 Number of Customers: 9
-MLMS 3:     26     3.3333333     0.5555556
