@@ -1,5 +1,7 @@
 package policies;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
@@ -139,6 +141,7 @@ public class MLMSBWT {
 	}
 
 	public String getStats() {
+		NumberFormat formatter = new DecimalFormat("0.00");
 		float t2 = 0;
 		float m = 0;
 
@@ -159,6 +162,7 @@ public class MLMSBWT {
 			}
 		m = m/servedCustomers.size();
 		
-		return "MLMSBWT " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
+		return "MLMSBWT " + serversList.size() + ":     " + t1+  "     " + formatter.format(t2) + "     " + formatter.format(m);
+		
 	}
 }

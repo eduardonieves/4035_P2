@@ -1,15 +1,16 @@
 package policies;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
-import interfaces.Policy;
 import utils.Customer;
 import utils.Server;
 import utils.ServiceLine;
 
-public class MLMS implements Policy{
+public class MLMS{
 
 	public ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
 	public ArrayList<Server> serversList;
@@ -138,6 +139,8 @@ public class MLMS implements Policy{
 	}
 
 	public String getStats() {
+	NumberFormat formatter = new DecimalFormat("0.00");
+
 		float t2 = 0;
 		float m = 0;
 
@@ -158,6 +161,5 @@ public class MLMS implements Policy{
 			}
 		m = m/(servedCustomers.size());
 		
-		return "MLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
-	}
+		return "MLMS " + serversList.size() + ":     " + t1+  "     " + formatter.format(t2) + "     " + formatter.format(m);	}
 }

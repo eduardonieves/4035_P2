@@ -56,14 +56,15 @@ public class Main {
 				//MLMSBBL
 				MLMSBLL mlmsbll1 = new MLMSBLL(1, queue);
 				mlmsbll1.runPolicy();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt1.getStats(), true);
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbll1.getStats(), true);
 				MLMSBLL mlmsbll3 = new MLMSBLL(3, queue);
 				mlmsbll3.runPolicy();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt3.getStats(), true);
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbll3.getStats(), true);
 				MLMSBLL mlmsbll5 = new MLMSBLL(5, queue);
 				mlmsbll5.runPolicy();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbwt5.getStats(), true);
+				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlmsbll5.getStats(), true);
 				
+
 				
 
 				//MLMSBWT

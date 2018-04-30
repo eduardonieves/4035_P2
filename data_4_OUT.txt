@@ -1,10 +1,13 @@
 Number of Customers: 1
-SLMS 1:     11     0.0     0.0
-SLMS 3:     11     0.0     0.0
-SLMS 5:     11     0.0     0.0
-MLMS 1:     11     0.0     0.0
-MLMS 3:     11     0.0     0.0
-MLMS 5:     11     0.0     0.0
-MLMSBWT 1:     0     0.0     0.0
-MLMSBWT 3:     0     0.0     0.0
-MLMSBWT 5:     0     0.0     0.0
+SLMS 1:     11     0.00     0.00
+SLMS 3:     11     0.00     0.00
+SLMS 5:     11     0.00     0.00
+MLMS 1:     11     0.00     0.00
+MLMS 3:     11     0.00     0.00
+MLMS 5:     11     0.00     0.00
+MLMS 1:     11     0.00     0.00
+MLMS 3:     11     0.00     0.00
+MLMS 5:     11     0.00     0.00
+MLMSBWT 1:     0     0.00     0.00
+MLMSBWT 3:     0     0.00     0.00
+MLMSBWT 5:     0     0.00     0.00
