@@ -52,21 +52,20 @@ public class Server {
 	}
 	
 	public void serviceStart(int t){
-		currentCustomer.setDepartureTime(t +  currentCustomer.getServiceTime());
+		Customer ctr = currentCustomer;
+		ctr.setDepartureTime(t +  ctr.getServiceTime());
 		serving = true;
 		
-		currentCustomer.setWaitingTime(currentCustomer.getDepartureTime() - currentCustomer.getServiceTime() - currentCustomer.getArrivalTime());
-		System.out.println("Serving Now: Arrival: "+ currentCustomer.getArrivalTime() + ", Current Time: " + t + ", Waiting Time: " + currentCustomer.getWaitingTime());
+		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getServiceTime() - ctr.getArrivalTime()-1);
+		
+		servedCustomersList.add(ctr);
+
+		System.out.println("Serving Now: Arrival: "+ ctr.getArrivalTime() + ", Current Time: " + t + ", Waiting Time: " + ctr.getWaitingTime());
 		
 	}
 	
 	public void serviceEnded(){
 		serving = false;
-		Customer ctr = currentCustomer;
-	//	ctr.setWaitingTime((ctr.getDepartureTime() - ctr.getServiceTime()) - ctr.getArrivalTime());
-		System.out.println("Departuring Now: Arrival: "+ ctr.getArrivalTime() + " Current Time: " + ctr.getDepartureTime());
-//		ctr.setWaitingTime(ctr.getDepartureTime() - ctr.getArrivalTime());
-		servedCustomersList.add(ctr);
 		this.currentCustomer = null;	
 	}
 	

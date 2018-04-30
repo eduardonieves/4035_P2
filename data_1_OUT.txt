@@ -1,4 +1,2 @@
 Number of Customers: 9
-MLMSBWT 1:     84     19.555555     0.0
-MLMSBWT 3:     37     2.4444444     0.0
-MLMSBWT 5:     29     0.22222222     0.0
+MLMS 3:     35     1.8888888     0.5555556

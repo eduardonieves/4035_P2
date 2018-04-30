@@ -54,7 +54,7 @@ public class MLMS implements Policy{
 		int t = 0;
 		System.out.println("Time:" + t);
 
-		while(servedCustomers.size() != totalCustomers) {
+		while(servedCustomers.size() != totalCustomers || this.currentlyServing()) {
 			
 			processTurn(t);
 			t++;
@@ -126,6 +126,16 @@ public class MLMS implements Policy{
 		
 		serviceCustomers(t);
 	}
+	
+	private boolean currentlyServing(){
+		for(Server s: serversList){
+			//Servers take a turn from their customers
+			if(s.serving){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public String getStats() {
 		float t2 = 0;
@@ -146,7 +156,7 @@ public class MLMS implements Policy{
 					m++;
 				}
 			}
-		m = m/servedCustomers.size();
+		m = m/(servedCustomers.size());
 		
 		return "MLMS " + serversList.size() + ":     " + t1 +  "     " + t2 + "     " + m;
 	}
