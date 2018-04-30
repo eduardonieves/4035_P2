@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
-import interfaces.Policy;
 import utils.Customer;
 import utils.Server;
 import utils.ServiceLine;
 
-public class MLMS implements Policy{
+public class MLMS{
 
 	public ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
 	public ArrayList<Server> serversList;

@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import interfaces.Policy;
 import utils.Customer;
 import utils.Server;
 import utils.ServiceLine;
 
-public class SLMS implements Policy {
+public class SLMS {
 
 	public ArrayList<Customer> servedCustomers = new ArrayList<Customer>();
 	public ArrayList<Server> serversList;
