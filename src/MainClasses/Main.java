@@ -29,26 +29,26 @@ public class Main {
 //				}
 				
 				//SLMS
-				SLMS slms1 = new SLMS(1, queue);
-				slms1.runSLMS();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms1.getStats(), true);
-				SLMS slms3 = new SLMS(3,queue);
-				slms3.runSLMS();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms3.getStats(), true);
-				SLMS slms5 = new SLMS(5,queue);
-				slms5.runSLMS();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms5.getStats(), true);
-//
-//				//MLMS
-				MLMS mlms1 = new MLMS(1, queue);
-				mlms1.runPolicy();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);
+//				SLMS slms1 = new SLMS(1, queue);
+//				slms1.runSLMS();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms1.getStats(), true);
+//				SLMS slms3 = new SLMS(3,queue);
+//				slms3.runSLMS();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms3.getStats(), true);
+//				SLMS slms5 = new SLMS(5,queue);
+//				slms5.runSLMS();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),slms5.getStats(), true);
+
+				//MLMS
+//				MLMS mlms1 = new MLMS(1, queue);
+//				mlms1.runPolicy();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms1.getStats(), true);
 				MLMS mlms3 = new MLMS(3, queue);
 				mlms3.runPolicy();
 				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms3.getStats(), true);
-				MLMS mlms5 = new MLMS(5, queue);
-				mlms5.runPolicy();
-				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms5.getStats(), true);
+//				MLMS mlms5 = new MLMS(5, queue);
+//				mlms5.runPolicy();
+//				reader.writeToFile(reader.outputFileList.get(arrivalList.indexOf(queue)),mlms5.getStats(), true);
 				
 				//MLMSBBL
 				

@@ -1,4 +1,1 @@
 Number of Customers: 9
-SLMS 1:     84     19.555555     0.0
-SLMS 3:     37     2.4444444     0.0
-SLMS 5:     29     0.22222222     0.0

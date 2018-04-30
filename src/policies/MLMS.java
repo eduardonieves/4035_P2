@@ -52,10 +52,14 @@ public class MLMS implements Policy{
 	
 	public void runPolicy() {
 		int t = 0;
+		System.out.println("Time:" + t);
+
 		while(servedCustomers.size() != totalCustomers) {
 			
 			processTurn(t);
 			t++;
+			System.out.println("Time:" + t);
+
 		}
 		t1 = t;
 	}
@@ -93,16 +97,17 @@ public class MLMS implements Policy{
 	
 	
 	private void newArrival(int t) {
-		
 		if (!ArrivalsQueue.isEmpty() && ArrivalsQueue.peek().getArrivalTime() == t)
 		{
+			System.out.println("Next in Line: Current Time: " + t + ", Arrival Time: "+ ArrivalsQueue.peek().getArrivalTime() + ", Service Time: "+ArrivalsQueue.peek().getServiceTime());
+
 			//the customer arrived
 			
 			//check for line with minimum waiting time
 			ServiceLine minLine = serviceLines.get(0);
 			for(ServiceLine line : serviceLines)
 			{
-				if(line.customerQueue.size() < minLine.customerQueue.size()) {
+				if(line.customerQueue.size() < minLine.customerQueue.size() && !line.getServersList().get(0).isServing()) {
 					minLine = line;
 				}
 			}
@@ -110,10 +115,12 @@ public class MLMS implements Policy{
 			//send customer to the line with minimum waiting time
 			minLine.addCustomer(ArrivalsQueue.remove());
 			
+			
 			newArrival(t);  //to check if the next customer in arrival queue arrived at the same time
 
 		}
 		
+		serviceCustomers(t);
 	}
 
 	public String getStats() {
@@ -130,6 +137,7 @@ public class MLMS implements Policy{
 		for(int i=0; i<servedCustomers.size(); i++)
 			for(int j=i+1; j<servedCustomers.size(); j++)
 			{
+				System.out.println("Customer "+j+": Arrival: "+servedCustomers.get(j).getArrivalTime() + ", Customer "+i+": Arrival: "+servedCustomers.get(i).getArrivalTime());
 				if(servedCustomers.get(j).getArrivalTime() < servedCustomers.get(i).getArrivalTime()) {
 					m++;
 				}
