@@ -59,14 +59,18 @@ public class MLMSBWT {
 		int t = 0;
 		System.out.println("		Time:" + t);
 
-		while(servedCustomers.size() != totalCustomers) {
+		while(servedCustomers.size() != totalCustomers || this.currentlyServing()) {
 			
 			processTurn(t);
 			t++;
 			System.out.println("		Time:" + t);
 
 		}
-		t1 = t-1;
+		
+		
+		
+	
+		t1 = t;
 	}
 	
 	public void processTurn(int t) {
@@ -138,6 +142,16 @@ public class MLMSBWT {
 		}
 		
 		serviceCustomers(t);
+	}
+	
+	private boolean currentlyServing(){
+		for(Server s: serversList){
+			//Servers take a turn from their customers
+			if(s.serving){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public String getStats() {

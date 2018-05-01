@@ -36,6 +36,7 @@ public class DataReader {
 	public ArrayList<PriorityQueue<Customer>> customerArrivalList = new ArrayList<>();
 	public ArrayList<Customer> unsortedCustomerList = new ArrayList<>();
 	public ArrayList<String> outputFileList = new ArrayList<>();
+	public boolean invalid = false;
 	
 
 	public DataReader() throws FileNotFoundException {
@@ -88,15 +89,33 @@ public class DataReader {
 										try{
 										String[] inputs = line.split(" ");
 										
+										
+										
 										if(inputs.length != 2){
 											//Invalid File
+										
+											invalid = writeInvalidFile(fileName);
+										}else{
+											for(String s: inputs){
+												
+												try{
+												Integer.parseInt(s);
+												}catch(NumberFormatException e){
+													invalid = writeInvalidFile(fileName);
+												}
+											}
 										}
 										
-										unsortedCustomerList.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
+										if(!invalid){
+											unsortedCustomerList.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
+
+										}
 										
 										
 										}catch(PatternSyntaxException e){
 											// Invalid File
+											invalid = writeInvalidFile(fileName);
+								
 										}
 					
 									
@@ -105,6 +124,8 @@ public class DataReader {
 										
 									}	
 									
+									if(!invalid){
+
 									Comparator<Customer> comparator = new CustomerComparator();
 									ArrivalQueue = new PriorityQueue<Customer>(unsortedCustomerList.size(), comparator);
 									
@@ -121,6 +142,8 @@ public class DataReader {
 									String[] fileNameSplit2 = fileName.split("\\.");
 									fileName = fileNameSplit2[0];
 									writeToFile(fileName,"Number of Customers: " + ArrivalQueue.size(), false);
+									invalid = false;
+								}
 								}
 								else
 								{
@@ -151,6 +174,17 @@ public class DataReader {
 				}	
 			}
 	
+	}
+	
+	public boolean writeInvalidFile(String fileName){
+		
+		String[] fileNameSplit = fileName.split("/");
+		fileName = fileNameSplit[1];
+		String[] fileNameSplit2 = fileName.split("\\.");
+		fileName = fileNameSplit2[0];
+		
+		writeToFile(fileName, "Input file does not meet the expected format or it is empty.", false);
+		return true;
 	}
 	
 	public void writeToFile(String file, String text, boolean append) {

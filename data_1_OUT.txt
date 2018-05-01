@@ -6,8 +6,8 @@ MLMS 1:     84     19.56     0.00
 MLMS 3:     35     2.44     0.22
 MLMS 5:     41     1.56     0.00
 MLMSBLL 1:     84     19.56     0.00
-MLMSBLL 3:     50     4.56     0.11
+MLMSBLL 3:     48     4.78     0.22
 MLMSBLL 5:     41     1.56     0.00
-MLMSBWT 1:     66     19.56     0.00
-MLMSBWT 3:     19     2.44     0.00
-MLMSBWT 5:     11     0.22     0.00
+MLMSBWT 1:     84     19.56     0.00
+MLMSBWT 3:     37     2.44     0.00
+MLMSBWT 5:     29     0.22     0.00
