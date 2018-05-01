@@ -120,7 +120,7 @@ public class MLMSBLL {
 
 			smallestLine = lineToCheck;
 		
-		else if(lineToCheck.customerQueue.size() > smallestLine.customerQueue.size()-1)
+		if(lineToCheck.customerQueue.size() > smallestLine.customerQueue.size()-1)
 			
 			largestLine = lineToCheck;
 	}
@@ -192,6 +192,6 @@ public class MLMSBLL {
 			}
 		m = m/(servedCustomers.size());
 		
-		return "MLMS " + serversList.size() + ":     " + t1+  "     " + formatter.format(t2) + "     " + formatter.format(m);	
+		return "MLMSBLL " + serversList.size() + ":     " + t1+  "     " + formatter.format(t2) + "     " + formatter.format(m);	
 	}
 }
