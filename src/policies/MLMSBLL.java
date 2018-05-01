@@ -138,6 +138,7 @@ public class MLMSBLL {
 		largestLine.transferCustomer(smallestLine);
 		smallestLine = serviceLines.get(0);
 		largestLine = serviceLines.get(0);
+		//set to 0
 	}
 	
 	private void newArrival(int t) {
