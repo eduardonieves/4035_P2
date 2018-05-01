@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.regex.PatternSyntaxException;
 
 import policies.SLMS;
 import utils.Customer;
@@ -78,35 +79,27 @@ public class DataReader {
 									//if running on Eclipse and files are inside src folder
 									reader = new BufferedReader(new FileReader(fileName));
 									
-									
-									//Initialize Policies
-									
-							
-									/*
-									SLMS = new SLMS(3);
-									SLMS = new SLMS(5);
-									MLMS = new MLMS(1);
-									MLMS = new MLMS(3);
-									MLMS = new MLMS(5);
-									MLMSBLL = new MLMSBLL(1);
-									MLMSBLL = new MLMSBLL(3);
-									MLMSBLL = new MLMSBLL(5);
-									MLMSBWT = new MLMSBWT(1);
-									MLMSBWT = new MLMSBWT(3);
-									MLMSBWT = new MLMSBWT(5);
-									*/
-
-									
-									
-									
-									
 									PriorityQueue<Customer> ArrivalQueue = new PriorityQueue<Customer>();
-																
+												
+									
+									
 									while ((line = reader.readLine()) != null) {
+										
+										try{
 										String[] inputs = line.split(" ");
 										
-					
+										if(inputs.length != 2){
+											//Invalid File
+										}
+										
 										unsortedCustomerList.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
+										
+										
+										}catch(PatternSyntaxException e){
+											// Invalid File
+										}
+					
+									
 										//ArrivalQueue.add(new Customer(Integer.parseInt(inputs[0]), Integer.parseInt(inputs[1])));
 									
 										
