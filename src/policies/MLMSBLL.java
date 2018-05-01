@@ -123,17 +123,18 @@ public class MLMSBLL {
 		if(lineToCheck.customerQueue.size() > largestLine.customerQueue.size())
 			
 			largestLine = lineToCheck;
-		for (ServiceLine line : serviceLines)
-		{
-			if(lineToCheck.customerQueue.size() == largestLine.customerQueue.size())
-				if(!lineToCheck.customerQueue.isEmpty() && !largestLine.customerQueue.isEmpty())
-					if(lineToCheck.customerQueue.getLast().getArrivalTime() < largestLine.customerQueue.getLast().getArrivalTime())
-						largestLine = lineToCheck;
-		}
 				
 	}
 	
 	private void makeTransfers(int t) {
+		for (ServiceLine line : serviceLines)
+		{
+			if(smallestLine!=largestLine)
+				if(line.customerQueue.size() == largestLine.customerQueue.size())
+					if(!line.customerQueue.isEmpty() && !largestLine.customerQueue.isEmpty())
+						if(line.customerQueue.getLast().getArrivalTime() < largestLine.customerQueue.getLast().getArrivalTime())
+							largestLine = line;
+		}
 		largestLine.transferCustomer(smallestLine);
 		smallestLine = serviceLines.get(0);
 		largestLine = serviceLines.get(0);
