@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
@@ -12,7 +13,7 @@ import java.util.Queue;
 
 public class ServiceLine {
 	
-	public Queue<Customer> customerQueue;
+	public Deque<Customer> customerQueue;
 	public ArrayList<Server> serversList;
 
 	
@@ -31,7 +32,7 @@ public class ServiceLine {
 
 	//Used for SLMS
 	public void addCustomer(Customer c){
-		customerQueue.add(c);
+		customerQueue.addLast(c);
 	}
 	
 	//Used for other Policies
@@ -40,7 +41,7 @@ public class ServiceLine {
 			this.getServersList().get(0).setCurrentCustomer(c, t);
 		else{
 			System.out.println("In queue for "+ this.serversList.get(0).serverID);
-			customerQueue.add(c);
+			customerQueue.addLast(c);
 		}
 	}
 	
@@ -49,7 +50,15 @@ public class ServiceLine {
 		if(customerQueue.isEmpty())
 			throw new NoSuchElementException("No Customers in queue");
 		
-		return customerQueue.remove();
+		return customerQueue.removeFirst();
+	}
+	
+	public Customer removeLastCustomer() throws NoSuchElementException{
+		
+		if(customerQueue.isEmpty())
+			throw new NoSuchElementException("No Customers in queue");
+		
+		return customerQueue.removeLast();
 	}
 	
 	public boolean sendCustomerToServer(int t){
@@ -57,13 +66,18 @@ public class ServiceLine {
 		for(Server s: serversList){
 			if(!s.serving){
 				
-				s.setCurrentCustomer(customerQueue.remove(), t);
+				s.setCurrentCustomer(customerQueue.removeFirst(), t);
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	public void transferCustomer(ServiceLine line){
+		if(!this.customerQueue.isEmpty())
+			line.customerQueue.addLast(this.removeLastCustomer());
+	}
+
 	public Customer frontCustomer(){
 		if(customerQueue.isEmpty()){
 			return null;

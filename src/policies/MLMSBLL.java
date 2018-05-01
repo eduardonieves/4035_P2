@@ -18,6 +18,9 @@ public class MLMSBLL {
 	private PriorityQueue<Customer> ArrivalsQueue;
 	private int totalCustomers;
 	private int t1 = 0;
+	private ServiceLine smallestLine = new ServiceLine();
+	private ServiceLine largestLine = new ServiceLine();
+
 	
 	public MLMSBLL(int servers, PriorityQueue<Customer> customersQueue ){
 
@@ -68,7 +71,7 @@ public class MLMSBLL {
 	public void processTurn(int t) {
 		
 		serviceCustomers(t);
-		//makeTransfers(t);
+		makeTransfers(t);
 		newServices(t);
 		newArrival(t);
 		
@@ -77,7 +80,8 @@ public class MLMSBLL {
 	
 	private void serviceCustomers(int t){
 
-
+		smallestLine = serviceLines.get(0);
+		largestLine = serviceLines.get(0);
 		//First Step: Check if a service ends
 		for (ServiceLine line : serviceLines)
 		{
@@ -90,8 +94,9 @@ public class MLMSBLL {
 					//Server is Available
 				}
 				
-				//checkForTransfer();
 			}
+			
+			checkForTransfers(line);
 		}
 	}
 	
@@ -110,10 +115,19 @@ public class MLMSBLL {
 		}
 	}
 	
-	private void checkForTransfers() {
+	private void checkForTransfers(ServiceLine lineToCheck) {
+		if(lineToCheck.customerQueue.size() < smallestLine.customerQueue.size()-1)
+
+			smallestLine = lineToCheck;
 		
+		if(lineToCheck.customerQueue.size() > smallestLine.customerQueue.size()-1)
+			
+			largestLine = lineToCheck;
 	}
 	
+	private void makeTransfers(int t) {
+		largestLine.transferCustomer(smallestLine);
+	}
 	
 	private void newArrival(int t) {
 		if (!ArrivalsQueue.isEmpty() && ArrivalsQueue.peek().getArrivalTime() == t)
@@ -178,6 +192,6 @@ public class MLMSBLL {
 			}
 		m = m/(servedCustomers.size());
 		
-		return "MLMS " + serversList.size() + ":     " + t1+  "     " + formatter.format(t2) + "     " + formatter.format(m);	
+		return "MLMSBLL " + serversList.size() + ":     " + t1+  "     " + formatter.format(t2) + "     " + formatter.format(m);	
 	}
 }
