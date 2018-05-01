@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.2" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="policies.MLMSBWT" project="4035_P2" file="/4035_P2/src/policies/MLMSBWT.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="154" width="223" x="976" y="192"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="policies.SLMS" project="4035_P2" file="/4035_P2/src/policies/SLMS.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="172" width="242" x="1239" y="192"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="utils.ServiceLine" project="4035_P2" file="/4035_P2/src/utils/ServiceLine.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="226" width="218" x="1324" y="742"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="policies.MLMSBLL" project="4035_P2" file="/4035_P2/src/policies/MLMSBLL.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="208" width="219" x="1521" y="192"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="MainClasses.Main" project="4035_P2" file="/4035_P2/src/MainClasses/Main.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="113" x="599" y="192"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="utils.CustomerComparator" project="4035_P2" 
+    file="/4035_P2/src/utils/CustomerComparator.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="184" x="752" y="192"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="utils.Customer" project="4035_P2" file="/4035_P2/src/utils/Customer.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="208" width="153" x="1249" y="1008"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="policies.MLMS" project="4035_P2" file="/4035_P2/src/policies/MLMS.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="154" width="200" x="1780" y="192"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="utils.Server" project="4035_P2" file="/4035_P2/src/utils/Server.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="262" width="230" x="1228" y="440"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="dataReader.DataReader" project="4035_P2" 
+    file="/4035_P2/src/dataReader/DataReader.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="82" width="209" x="874" y="742"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="11">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="12" name="serversList"/>      
+      <multiplicity id="13" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="14">    
+    <bendpoint x="1579" y="451"/>    
+    <bendpoint x="1572" y="742"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="15" name="servedCustomers"/>      
+      <multiplicity id="16" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="17">    
+    <bendpoint x="1656" y="440"/>    
+    <bendpoint x="1656" y="742"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="18" name="servedCustomers"/>      
+      <multiplicity id="19" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="21" name="serversList"/>      
+      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="23">    
+    <bendpoint x="1237" y="742"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="24" name="servedCustomersList"/>      
+      <multiplicity id="25" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="27" name="serversList"/>      
+      <multiplicity id="28" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="29">    
+    <bendpoint x="1258" y="742"/>    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="30" name="currentCustomer"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="32">    
+    <bendpoint x="1155" y="440"/>    
+    <bendpoint x="1155" y="742"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="33" name="servedCustomers"/>      
+      <multiplicity id="34" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="35">    
+    <bendpoint x="1551" y="440"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="36" name="serviceLines"/>      
+      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="38">    
+    <bendpoint x="1488" y="440"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="39" name="serviceLine"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="41">    
+    <bendpoint x="1086" y="856"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="42" name="serviceLines"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="45" name="serversList"/>      
+      <multiplicity id="46" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="47">    
+    <bendpoint x="1176" y="440"/>    
+    <bendpoint x="1176" y="742"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="48" name="ArrivalsQueue"/>      
+      <multiplicity id="49" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="50">    
+    <bendpoint x="1635" y="440"/>    
+    <bendpoint x="1635" y="742"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="51" name="ArrivalsQueue"/>      
+      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="53">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="54" name="serviceLineID"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="56">    
+    <bendpoint x="1509" y="440"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="57" name="smallestLine"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="59">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="60" name="unsortedCustomerList"/>      
+      <multiplicity id="61" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="62">    
+    <bendpoint x="1113" y="440"/>    
+    <bendpoint x="1113" y="742"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="63" name="ArrivalsQueue"/>      
+      <multiplicity id="64" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="65">    
+    <bendpoint x="1880" y="571"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="66" name="serversList"/>      
+      <multiplicity id="67" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="68">    
+    <bendpoint x="1879" y="855"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="69" name="serviceLines"/>      
+      <multiplicity id="70" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="71">    
+    <bendpoint x="1134" y="440"/>    
+    <bendpoint x="1134" y="742"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="72" name="servedCustomers"/>      
+      <multiplicity id="73" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="74">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="75" name="customerQueue"/>      
+      <multiplicity id="76" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="77">    
+    <bendpoint x="1530" y="440"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="78" name="largestLine"/>      
+      <multiplicity id="79" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="80">    
+    <bendpoint x="1614" y="440"/>    
+    <bendpoint x="1614" y="742"/>    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="81" name="ArrivalsQueue"/>      
+      <multiplicity id="82" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="false"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>

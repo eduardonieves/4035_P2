@@ -120,14 +120,16 @@ public class MLMSBLL {
 
 			smallestLine = lineToCheck;
 		
-		if(lineToCheck.customerQueue.size() > largestLine.customerQueue.size()-1)
+		if(lineToCheck.customerQueue.size() > largestLine.customerQueue.size())
 			
 			largestLine = lineToCheck;
-		
-		if(lineToCheck.customerQueue.size() == largestLine.customerQueue.size())
-			if(!lineToCheck.customerQueue.isEmpty() && !largestLine.customerQueue.isEmpty())
-				if(lineToCheck.customerQueue.getLast().getArrivalTime() < largestLine.customerQueue.getLast().getArrivalTime())
-					largestLine = lineToCheck;
+		for (ServiceLine line : serviceLines)
+		{
+			if(lineToCheck.customerQueue.size() == largestLine.customerQueue.size())
+				if(!lineToCheck.customerQueue.isEmpty() && !largestLine.customerQueue.isEmpty())
+					if(lineToCheck.customerQueue.getLast().getArrivalTime() < largestLine.customerQueue.getLast().getArrivalTime())
+						largestLine = lineToCheck;
+		}
 				
 	}
 	
